@@ -1,0 +1,85 @@
+########################################
+# Install Notes for this ArchLinux ISO #
+########################################
+
+Thank you for using this ISO to install ArchLinux! Apart from the desktop environment provided,
+this ISO uses the standard method to install ArchLinux. There are just a few addendums that
+you should be aware of before proceeding with this installation.
+
+Here is a link to the installation guide if you wish to browse it in Firefox rather
+than the terminal: https://wiki.archlinux.org/title/Installation_guide
+
+Or, if you prefer, just open another terminal and call up 'Installation_guide'. A lynx browser
+will open taking you directly to that page.
+
+
+#
+# User Privilages
+#
+
+By default, you are a normal user (named install) when logging into the desktop environment.
+When using a command that requires root privilages (such as pacman), you will need to prepend 
+"sudo" before being able to successfully execute. There is no password associated with the install
+account, so don't worry about getting it wrong.
+
+If you choose to install as root (like the normal ArchISO), just execute "sudo su", and proceed as normal.
+
+
+#
+# WiFi
+#
+
+Wifi is handled with the NetworkManager utility instead of IWD by default. If you have a wired connection,
+check that you can ping an address; if that is successful, continue with the installation as normal. 
+If you plan on using a wireless connection, hop into the terminal and run 'nmtui' to connect to the internet.
+(Or you can use 'nmcli', although that's a little bit more verbose.)
+
+If, of course, you desire to use IWD instead of NetworkManager, it is easily downloadable from pacman.
+
+
+#
+# Paru, a pacman wrapper
+#
+
+This ISO includes Paru, an alternative pacman wrapper, to allow for installation of packages from the
+Arch User Repository (AUR). Be aware, however, that paru does not currently allow for pacstraping
+packages to the installation disk, so you will need to download and build directly using the 'git clone'
+utility (available from pacman by default).
+
+
+#
+# Disk Partitioning
+#
+
+While the install wiki recommends using 'fdisk' (a common partitioning tool), a slightly more user-friendly
+utility to use would be 'cfdisk' (primarily for MBR disks/BIOS use) or 'cgdisk' (primarily for GPT disks/UEFI use).
+If (and when) gparted begins working on Wayland successfully, it will be installed on the ISO, and we recommend
+using it rather than a command-line utility (if you are new to installing.)
+
+
+# 
+# Extra Packages
+#
+
+If you're curious about what has been appended to this ISO, these are the most prominent ones:
+	1) Window Manager
+		a) wayland
+		b) sway
+		c) waybar
+		d) bemenu (and bemenu-wayland)
+		e) j4-dmenu-desktop
+		f) dmenu
+		g) alacritty (terminal emulator)
+	2) xorg 
+		a) xorg-server
+		b) xorg-server-common
+		c) xorg-xinit
+		d) xorg-xwayland
+		e) xorg-drivers
+	3) firefox (web browser)
+	4) networkmanager (internet connection utility)
+	5) paru (a pacman wrapper)
+
+
+And that's it! Thanks for using the ISO! Any questions should be directed to your local Department of Pedantry.
+Hopefully this ISO is a little bit more user-friendly than just a black screen and a blinking cursor.

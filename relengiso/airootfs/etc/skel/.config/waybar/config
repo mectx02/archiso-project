@@ -1,0 +1,104 @@
+{
+	// General waybar setup
+	"height": 20, 
+
+	// Module ordering
+	"modules-left": ["sway/workspaces", "clock", "network", "sway/mode", "custom/media"],
+	"modules-center": ["sway/window"],
+	"modules-right": ["pulseaudio", "cpu", "memory", "backlight", "battery", "tray"],
+	
+	/*
+	 * Module Settings
+	 */
+
+	// Sway/mode
+	"sway/mode": {
+		"format": "<span style=\"italic\">{}</span>"
+	},
+
+	// Sway/window
+
+
+	// Idle Inhibitor
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+
+	// Tray
+	"tray": {
+		// "icon-size": 21,
+		"spacing": 10
+	},
+
+	// Clock
+	"clock": {
+		"interval": 1,
+		"tooltip-format": "{:%A | %D}",
+		"format": "{:%H:%M:%S %Z}",
+	},
+
+	// Sound/PulseAudio
+	"pulseaudio": {
+		"scroll-step": -1.25, // %, can be a float
+		"format": "VOL: {volume}%",
+		"format-bluetooth": "{volume}% {icon} {format_source}",
+		"format-bluetooth-muted": " {icon} {format_source}",
+		"format-muted": "VOL: {volume}%",
+		"on-click": "pactl set-sink-mute 0 toggle",
+		"tooltip": false
+	},
+
+	// Network
+	"network": {
+		"format": "{ipaddr}",
+		"format-linked": "No IP",
+		"format-disconnected": "Disconnected",
+		"format-alt": "{essid}: ({signalStrength}%)",
+		"tooltip-format": "Interface: {ifname}",
+		"on-click-right": "nm-connection-editor"
+	},
+
+	// CPU
+	"cpu": {
+		"format": "CPU: {usage}%",
+		"interval": 1
+	},
+
+	// Memory
+	"memory": {
+		"interval": 1,
+		"format": "MEM: {used:0.2f} GiB used",
+		"format-alt": "MEM: {avail:0.2f} GiB avail",
+		"tooltip-format": "{total:0.2f} GiB total | {}%"
+	},
+
+	// Backlight
+	"backlight": {
+		"format": "BKL: {percent}%",
+		"on-scroll-down": "brightnessctl set 1%-",
+		"on-scroll-up": "brightnessctl set +1%",
+		"smooth-scrolling-threshold": 2
+	},
+
+	// Battery
+	"battery": {
+		"format-time": "{H}:{M}",
+		"states": {
+			// "good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "BAT: {capacity}%",
+		"format-charging": "CHG: {capacity}%",
+		"format-plugged": "FULL: {capacity}%",
+		"format-alt": "BAT: {time} rem",
+		"format-plugged-alt": "CHG: {time} rem",
+		"format-full": "BAT: FULL",
+		"tooltip-format": "Time remaining: {time}"
+	}
+
+}
